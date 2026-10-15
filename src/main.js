@@ -443,6 +443,11 @@ function configureProfileMetadata() {
       heroLeetcode.setAttribute('data-network', 'LeetCode');
     }
   }
+
+  const profileImg = document.getElementById('hero-profile-img');
+  if (profileImg && portfolioData.links.profilePhoto) {
+    profileImg.src = portfolioData.links.profilePhoto;
+  }
 }
 
 /**
@@ -473,6 +478,9 @@ function escapeHtml(str) {
  * Lazy Load Procedural Three.js 3D Cupcake Scene
  */
 async function loadCupcakeScene() {
+  const canvasEl = document.getElementById('cupcake-canvas');
+  if (!canvasEl) return; // Safely skip when hero displays developer photo
+
   const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const isMobile = window.innerWidth < 640;
 

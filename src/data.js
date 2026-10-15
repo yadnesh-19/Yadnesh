@@ -41,7 +41,8 @@ export const portfolioData = {
     linkedin: "https://www.linkedin.com/in/yadnesh-more-8a6a1732b/?isSelfProfile=true", // Set your real LinkedIn URL or leave empty
     leetcode: "https://leetcode.com", // Set your LeetCode profile URL or leave empty
     email: "yadneshmore2006@gmail.com", // Configurable email for mailto drafts
-    resumePdf: "/assets/Yadnesh_CV.pdf" // Located in public/assets/Yadnesh_CV.pdf
+    resumePdf: "/assets/Yadnesh_CV.pdf", // Located in public/assets/Yadnesh_CV.pdf
+    profilePhoto: "/assets/yadnesh.jpg" // Place your photo in public/assets/yadnesh.jpg (or .png)
   },
 
   skillsCategories: [

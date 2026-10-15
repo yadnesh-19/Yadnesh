@@ -25,6 +25,7 @@ export class PortfolioInteractions {
     this.setupSkillsFilter();
     this.setupCaseStudyAccordions();
     this.setupCardPerspectiveTilt();
+    this.setupPhotoAuraSwitcher();
     this.setupContactForm();
     this.setupModal();
     this.setupSmoothScrollActions();
@@ -226,7 +227,7 @@ export class PortfolioInteractions {
     const isFinePointer = window.matchMedia('(pointer: fine)').matches;
     if (!isFinePointer) return;
 
-    const tiltCards = document.querySelectorAll('.project-card, .about-card');
+    const tiltCards = document.querySelectorAll('.project-card, .about-card, .photo-card-wrapper');
 
     tiltCards.forEach(card => {
       card.addEventListener('mousemove', (e) => {
@@ -244,6 +245,33 @@ export class PortfolioInteractions {
 
       card.addEventListener('mouseleave', () => {
         card.style.transform = '';
+      });
+    });
+  }
+
+  /**
+   * 8. Hero Photo Aura Glow Theme Switcher
+   */
+  setupPhotoAuraSwitcher() {
+    const auraButtons = document.querySelectorAll('.aura-btn');
+    const glowEl = document.getElementById('photo-ambient-glow');
+    const wrapperEl = document.getElementById('photo-card-wrapper');
+    if (!auraButtons.length || !glowEl) return;
+
+    auraButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        auraButtons.forEach(b => {
+          b.classList.remove('active');
+          b.setAttribute('aria-pressed', 'false');
+        });
+        btn.classList.add('active');
+        btn.setAttribute('aria-pressed', 'true');
+
+        const aura = btn.getAttribute('data-aura') || 'violet';
+        glowEl.className = `photo-ambient-glow glow-${aura}`;
+        if (wrapperEl) {
+          wrapperEl.setAttribute('data-aura', aura);
+        }
       });
     });
   }

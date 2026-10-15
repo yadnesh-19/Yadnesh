@@ -190,77 +190,73 @@
             </a>
           </div>
 
-          <!-- Right: 3D Procedural Cupcake Centerpiece -->
-          <div class="hero-cupcake-stage reveal-on-scroll delay-1">
-            <div class="cupcake-canvas-wrapper" id="cupcake-wrapper">
-              <!-- WebGL Three.js Canvas -->
-              <canvas id="cupcake-canvas" aria-label="Interactive 3D procedural cupcake with violet and cyan lighting"></canvas>
+          <!-- Right: Hero Developer Portrait Stage (Keeping Theme & Aesthetic) -->
+          <div class="hero-photo-stage reveal-on-scroll delay-1" id="hero-photo-stage">
+            
+            <!-- Main Photo Card Container with Glowing Aura -->
+            <div class="photo-card-wrapper" id="photo-card-wrapper" data-aura="violet">
               
-              <!-- Subtle CSS Ground Shadow -->
-              <div class="cupcake-pedestal-glow" aria-hidden="true"></div>
+              <!-- Multi-layered Ambient Halo Glow (changes with color picker) -->
+              <div class="photo-ambient-glow glow-violet" id="photo-ambient-glow" aria-hidden="true"></div>
+              
+              <!-- Glass Card Frame -->
+              <div class="photo-glass-frame">
+                
+                <!-- Profile Image with Automatic Fallback -->
+                <img 
+                  src="/assets/yadnesh.jpg" 
+                  alt="Yadnesh — Aspiring Software Engineer" 
+                  class="hero-profile-image" 
+                  id="hero-profile-img"
+                  loading="eager"
+                  onerror="if (!this.dataset.fallback) { this.dataset.fallback = 'true'; this.src = '/assets/yadnesh-avatar.svg'; }"
+                />
 
-              <!-- Accessible 2D Vector Fallback Illustration -->
-              <div class="cupcake-fallback-illustration" id="cupcake-fallback" aria-hidden="true">
-                <svg viewBox="0 0 200 200" width="200" height="200">
-                  <defs>
-                    <linearGradient id="svgFrostingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stop-color="#C4B5FD" />
-                      <stop offset="50%" stop-color="#8B5CF6" />
-                      <stop offset="100%" stop-color="#06B6D4" />
-                    </linearGradient>
-                    <linearGradient id="svgWrapperGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stop-color="#1E1B4B" />
-                      <stop offset="100%" stop-color="#0F172A" />
-                    </linearGradient>
-                  </defs>
-                  <!-- Liner -->
-                  <polygon points="55,115 145,115 132,175 68,175" fill="url(#svgWrapperGrad)" stroke="#8B5CF6" stroke-width="2" />
-                  <line x1="80" y1="115" x2="84" y2="175" stroke="#334155" stroke-width="1.5" />
-                  <line x1="100" y1="115" x2="100" y2="175" stroke="#334155" stroke-width="1.5" />
-                  <line x1="120" y1="115" x2="116" y2="175" stroke="#334155" stroke-width="1.5" />
-                  <!-- Sponge -->
-                  <ellipse cx="100" cy="115" rx="46" ry="12" fill="#3D2314" />
-                  <!-- Swirl -->
-                  <path d="M50,115 Q100,75 150,115 Q135,70 100,65 Q65,70 50,115 Z" fill="url(#svgFrostingGrad)" />
-                  <path d="M70,85 Q100,45 130,85 Q115,40 100,38 Q85,40 70,85 Z" fill="#A78BFA" />
-                  <!-- Cherry -->
-                  <circle cx="100" cy="36" r="9" fill="#EF4444" />
-                  <path d="M103,30 Q115,15 110,10" stroke="#10B981" stroke-width="2.5" fill="none" stroke-linecap="round" />
-                  <!-- Sprinkles -->
-                  <rect x="75" y="95" width="8" height="3" rx="1.5" fill="#06B6D4" transform="rotate(25 75 95)" />
-                  <rect x="120" y="90" width="8" height="3" rx="1.5" fill="#F472B6" transform="rotate(-30 120 90)" />
-                  <rect x="95" y="70" width="8" height="3" rx="1.5" fill="#FEF08A" transform="rotate(15 95 70)" />
-                </svg>
+                <!-- Floating Badge 1: Top-Right Skill Chip -->
+                <div class="floating-badge badge-top-right">
+                  <span class="badge-icon"><i data-lucide="code-2"></i></span>
+                  <span>Java &amp; React</span>
+                </div>
+
+                <!-- Floating Badge 2: Bottom-Left Location / CGPA Chip -->
+                <div class="floating-badge badge-bottom-left">
+                  <span class="badge-dot pulse-cyan"></span>
+                  <span>Pune, IN • 8.91 CGPA</span>
+                </div>
+
+                <!-- Floating Badge 3: Top-Left Sweet Touch -->
+                <div class="floating-badge badge-top-left">
+                  <span>🧁</span>
+                  <span>Code &amp; Delight</span>
+                </div>
+
               </div>
             </div>
 
-            <!-- Cupcake Controls Bar -->
-            <div class="cupcake-controls-card">
-              <div class="flavor-picker-group">
-                <span class="flavor-picker-label">Frosting:</span>
-                <button type="button" class="flavor-btn active" data-flavor-hex="8b5cf6" aria-pressed="true">
-                  <span class="flavor-swatch" style="background-color: #8B5CF6;" aria-hidden="true"></span>
+            <!-- Profile Theme & Aura Controls Bar (Keeps theme interactive!) -->
+            <div class="photo-controls-card">
+              <div class="aura-picker-group">
+                <span class="aura-picker-label">Aura Glow:</span>
+                <button type="button" class="aura-btn active" data-aura="violet" aria-label="Violet aura theme" aria-pressed="true">
+                  <span class="aura-swatch" style="background-color: #8B5CF6;" aria-hidden="true"></span>
                   <span>Violet</span>
                 </button>
-                <button type="button" class="flavor-btn" data-flavor-hex="f472b6" aria-pressed="false">
-                  <span class="flavor-swatch" style="background-color: #F472B6;" aria-hidden="true"></span>
+                <button type="button" class="aura-btn" data-aura="berry" aria-label="Berry pink aura theme" aria-pressed="false">
+                  <span class="aura-swatch" style="background-color: #F472B6;" aria-hidden="true"></span>
                   <span>Berry</span>
                 </button>
-                <button type="button" class="flavor-btn" data-flavor-hex="06b6d4" aria-pressed="false">
-                  <span class="flavor-swatch" style="background-color: #06B6D4;" aria-hidden="true"></span>
+                <button type="button" class="aura-btn" data-aura="cyan" aria-label="Cyan neon aura theme" aria-pressed="false">
+                  <span class="aura-swatch" style="background-color: #06B6D4;" aria-hidden="true"></span>
                   <span>Cyan</span>
                 </button>
               </div>
 
-              <div class="stage-toggles">
-                <button type="button" class="btn-stage-toggle" id="btn-pause-cupcake" aria-label="Pause 3D animation" title="Pause 3D animation">
-                  <i data-lucide="pause"></i>
-                </button>
-                <button type="button" class="btn-stage-toggle" id="btn-toggle-3d" aria-label="Toggle 2D / 3D mode" title="Toggle 2D / 3D mode">
-                  <i data-lucide="layers"></i>
-                </button>
+              <div class="photo-quick-status">
+                <span class="status-indicator-dot"></span>
+                <span class="status-text">Available for Hire</span>
               </div>
             </div>
+
           </div>
 
         </div>

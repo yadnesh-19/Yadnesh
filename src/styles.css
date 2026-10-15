@@ -761,10 +761,10 @@ section {
 }
 
 /* ==========================================================================
-   Hero 3D Cupcake Stage & Controls
+   Hero Developer Photo Stage & Theme-Aligned Aura Controls
    ========================================================================== */
 
-.hero-cupcake-stage {
+.hero-photo-stage {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -772,85 +772,178 @@ section {
   justify-content: center;
 }
 
-.cupcake-canvas-wrapper {
+.photo-card-wrapper {
   position: relative;
   width: 100%;
-  max-width: 460px;
-  aspect-ratio: 1 / 1;
+  max-width: 440px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 36px;
-  background: radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.08) 0%, rgba(16, 22, 37, 0.5) 70%, transparent 100%);
-  border: 1px solid var(--border-subtle);
-  box-shadow: 0 20px 50px -15px rgba(0, 0, 0, 0.6);
-  overflow: hidden;
+  transition: transform var(--transition-bounce);
 }
 
-#cupcake-canvas {
-  width: 100% !important;
-  height: 100% !important;
-  cursor: grab;
-  touch-action: none;
-}
-
-#cupcake-canvas:active {
-  cursor: grabbing;
-}
-
-/* Ground shadow / Glow */
-.cupcake-pedestal-glow {
+/* Ambient Halo Glow that changes dynamically with aura theme */
+.photo-ambient-glow {
   position: absolute;
-  bottom: 24px;
-  width: 220px;
-  height: 28px;
-  border-radius: 50%;
-  background: radial-gradient(ellipse, rgba(139, 92, 246, 0.35) 0%, rgba(6, 182, 212, 0.15) 45%, transparent 70%);
-  filter: blur(12px);
+  top: 50%;
+  left: 50%;
+  width: 112%;
+  height: 112%;
+  transform: translate(-50%, -50%);
+  border-radius: 46px;
+  filter: blur(40px);
+  opacity: 0.6;
   pointer-events: none;
+  z-index: 0;
+  transition: background 0.6s ease, opacity 0.6s ease;
 }
 
-/* 2D Fallback Vector Illustration */
-.cupcake-fallback-illustration {
-  display: none;
-  width: 80%;
-  height: 80%;
+.photo-ambient-glow.glow-violet {
+  background: radial-gradient(circle at 50% 45%, rgba(139, 92, 246, 0.45) 0%, rgba(6, 182, 212, 0.22) 50%, transparent 75%);
+}
+
+.photo-ambient-glow.glow-berry {
+  background: radial-gradient(circle at 50% 45%, rgba(244, 114, 182, 0.5) 0%, rgba(139, 92, 246, 0.25) 50%, transparent 75%);
+}
+
+.photo-ambient-glow.glow-cyan {
+  background: radial-gradient(circle at 50% 45%, rgba(6, 182, 212, 0.5) 0%, rgba(59, 130, 246, 0.25) 50%, transparent 75%);
+}
+
+/* Glass Card Frame with Dual-Sheen Borders */
+.photo-glass-frame {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  aspect-ratio: 1 / 1.04;
+  border-radius: 36px;
+  background: radial-gradient(circle at 50% 20%, rgba(139, 92, 246, 0.12) 0%, rgba(16, 22, 37, 0.82) 85%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(139, 92, 246, 0.35);
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.75), inset 0 1px 1px rgba(255, 255, 255, 0.12);
+  overflow: hidden;
+  display: flex;
   align-items: center;
   justify-content: center;
-  pointer-events: none;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
-.cupcake-fallback-illustration svg {
+.photo-card-wrapper:hover .photo-glass-frame {
+  border-color: rgba(6, 182, 212, 0.55);
+  box-shadow: 0 32px 75px -15px rgba(0, 0, 0, 0.85), 0 0 35px -10px rgba(6, 182, 212, 0.35);
+}
+
+/* Photo Image */
+.hero-profile-image {
   width: 100%;
   height: 100%;
-  filter: drop-shadow(0 15px 25px rgba(139, 92, 246, 0.3));
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 36px;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Cupcake Controls Bar */
-.cupcake-controls-card {
+.photo-card-wrapper:hover .hero-profile-image {
+  transform: scale(1.035);
+}
+
+/* Floating Badges */
+.floating-badge {
+  position: absolute;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--radius-pill);
+  background: rgba(11, 15, 25, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.55);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-heading);
+  pointer-events: none;
+  animation: floatBadge 4s ease-in-out infinite alternate;
+}
+
+.badge-top-left {
+  top: 18px;
+  left: 18px;
+  border-color: rgba(244, 114, 182, 0.35);
+  animation-delay: 0s;
+}
+
+.badge-top-right {
+  top: 24px;
+  right: 18px;
+  border-color: rgba(6, 182, 212, 0.35);
+  animation-delay: 1.2s;
+}
+
+.badge-bottom-left {
+  bottom: 20px;
+  left: 20px;
+  border-color: rgba(139, 92, 246, 0.35);
+  animation-delay: 2.4s;
+}
+
+.floating-badge .badge-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--dessert-cyan);
+}
+
+.floating-badge .badge-icon svg {
+  width: 15px;
+  height: 15px;
+}
+
+.badge-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.badge-dot.pulse-cyan {
+  background: var(--dessert-cyan);
+  box-shadow: 0 0 8px var(--dessert-cyan);
+}
+
+@keyframes floatBadge {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-6px); }
+}
+
+/* Controls Bar below Photo */
+.photo-controls-card {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 0.85rem;
   width: 100%;
-  max-width: 460px;
+  max-width: 440px;
   margin-top: 1.25rem;
-  padding: 0.75rem 1rem;
+  padding: 0.75rem 1.15rem;
   background: rgba(16, 22, 37, 0.75);
   backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-sm);
 }
 
-.flavor-picker-group {
+.aura-picker-group {
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
-.flavor-picker-label {
+.aura-picker-label {
   font-size: 0.76rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -858,66 +951,56 @@ section {
   color: var(--text-subtle);
 }
 
-.flavor-btn {
+.aura-btn {
   display: flex;
   align-items: center;
   gap: 0.35rem;
   padding: 0.3rem 0.65rem;
   border-radius: var(--radius-pill);
   border: 1px solid var(--border-subtle);
+  background: rgba(255, 255, 255, 0.03);
   font-size: 0.76rem;
   font-weight: 500;
   color: var(--text-muted);
-  background: rgba(255, 255, 255, 0.03);
+  cursor: pointer;
   transition: all var(--transition-fast);
 }
 
-.flavor-btn:hover {
+.aura-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
   color: #FFFFFF;
   border-color: rgba(255, 255, 255, 0.2);
 }
 
-.flavor-btn.active {
+.aura-btn.active {
   color: #FFFFFF;
   background: rgba(139, 92, 246, 0.2);
   border-color: var(--accent-primary-light);
   font-weight: 600;
 }
 
-.flavor-swatch {
+.aura-swatch {
   width: 10px;
   height: 10px;
   border-radius: 50%;
+  flex-shrink: 0;
 }
 
-.stage-toggles {
+.photo-quick-status {
   display: flex;
   align-items: center;
-  gap: 0.4rem;
-}
-
-.btn-stage-toggle {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  border-radius: var(--radius-sm);
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--border-subtle);
+  gap: 0.5rem;
+  font-size: 0.78rem;
+  font-weight: 500;
   color: var(--text-muted);
-  transition: all var(--transition-fast);
 }
 
-.btn-stage-toggle:hover {
-  color: #FFFFFF;
-  border-color: rgba(255, 255, 255, 0.2);
-  background: rgba(255, 255, 255, 0.08);
-}
-
-.btn-stage-toggle svg {
-  width: 15px;
-  height: 15px;
+.status-indicator-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10B981;
+  box-shadow: 0 0 8px #10B981;
 }
 
 /* ==========================================================================
@@ -2093,10 +2176,12 @@ section {
     gap: 3rem;
   }
 
+  .hero-photo-stage,
   .hero-cupcake-stage {
     order: -1;
   }
 
+  .photo-card-wrapper,
   .cupcake-canvas-wrapper {
     max-width: 380px;
   }
@@ -2140,6 +2225,7 @@ section {
     font-size: 2.4rem;
   }
 
+  .photo-card-wrapper,
   .cupcake-canvas-wrapper {
     max-width: 320px;
   }
