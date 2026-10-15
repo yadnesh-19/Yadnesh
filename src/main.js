@@ -6,6 +6,7 @@
  * and lazy-loads the procedural Three.js 3D cupcake scene.
  */
 
+import './styles.css';
 import { portfolioData } from './data.js';
 import { PortfolioInteractions } from './interactions.js';
 

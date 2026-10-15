@@ -1,14 +1,14 @@
 /**
  * Portfolio Data Configuration for Yadnesh
  * "Code & Cupcakes — thoughtfully crafted software."
- * 
+ *
  * Edit this file to update profile links, resume, project details, and timeline.
  */
 
 export const portfolioData = {
   profile: {
-    name: "Yadnesh",
-    fullNamePlaceholder: "Yadnesh [Configure Full Name]",
+    name: "Yadnesh More",
+    fullNamePlaceholder: "Yadnesh ",
     title: "Aspiring Software Engineer | Java & React Developer",
     location: "Pune, India",
     availableForInternships: true,
@@ -37,11 +37,11 @@ export const portfolioData = {
 
   // Configurable external links. Leave empty ("") to trigger honest fallback notices.
   links: {
-    github: "https://github.com", // Set your real GitHub URL or leave empty
-    linkedin: "https://linkedin.com", // Set your real LinkedIn URL or leave empty
+    github: "https://github.com/yadnesh-19", // Set your real GitHub URL or leave empty
+    linkedin: "https://www.linkedin.com/in/yadnesh-more-8a6a1732b/?isSelfProfile=true", // Set your real LinkedIn URL or leave empty
     leetcode: "https://leetcode.com", // Set your LeetCode profile URL or leave empty
-    email: "yadnesh.portfolio@example.com", // Configurable email for mailto drafts
-    resumePdf: "" // Set to "/assets/resume.pdf" when your PDF is placed in public/assets/
+    email: "yadneshmore2006@gmail.com", // Configurable email for mailto drafts
+    resumePdf: "Yadnesh_CV.pdf" // Set to "/assets/resume.pdf" when your PDF is placed in public/assets/
   },
 
   skillsCategories: [
