@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="frostingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C4B5FD" />
+      <stop offset="50%" stop-color="#8B5CF6" />
+      <stop offset="100%" stop-color="#06B6D4" />
+    </linearGradient>
+    <linearGradient id="baseGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E293B" />
+      <stop offset="100%" stop-color="#0F172A" />
+    </linearGradient>
+  </defs>
+  <!-- Background circle -->
+  <circle cx="32" cy="32" r="30" fill="#080B14" stroke="#8B5CF6" stroke-width="2" />
+  <!-- Wrapper -->
+  <polygon points="18,36 46,36 42,52 22,52" fill="url(#baseGrad)" stroke="#8B5CF6" stroke-width="1.5" stroke-linejoin="round" />
+  <line x1="26" y1="36" x2="27" y2="52" stroke="#334155" stroke-width="1" />
+  <line x1="32" y1="36" x2="32" y2="52" stroke="#334155" stroke-width="1" />
+  <line x1="38" y1="36" x2="37" y2="52" stroke="#334155" stroke-width="1" />
+  <!-- Frosting Swirl -->
+  <path d="M16,36 Q32,24 48,36 Q42,22 32,20 Q22,22 16,36 Z" fill="url(#frostingGrad)" />
+  <path d="M22,26 Q32,14 42,26 Q36,12 32,11 Q28,12 22,26 Z" fill="#A78BFA" />
+  <!-- Cherry / Apex -->
+  <circle cx="32" cy="11" r="3.5" fill="#EF4444" />
+  <path d="M33,9 Q38,4 36,2" stroke="#4ade80" stroke-width="1.2" fill="none" stroke-linecap="round" />
+  <!-- Code bracket hint -->
+  <path d="M12,28 L7,32 L12,36" stroke="#06B6D4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+  <path d="M52,28 L57,32 L52,36" stroke="#06B6D4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+</svg>
